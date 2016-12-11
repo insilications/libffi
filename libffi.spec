@@ -4,7 +4,7 @@
 #
 Name     : libffi
 Version  : 3.2.1
-Release  : 21
+Release  : 22
 URL      : ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
 Source0  : ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
 Summary  : Library supporting Foreign Function Interfaces
@@ -27,6 +27,7 @@ page for updates: <URL:http://sourceware.org/libffi/>.
 Summary: dev components for the libffi package.
 Group: Development
 Requires: libffi-lib
+Provides: libffi-devel
 
 %description dev
 dev components for the libffi package.
@@ -52,13 +53,15 @@ lib components for the libffi package.
 %setup -q -n libffi-3.2.1
 
 %build
+export LANG=C
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
 %check
+export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=intel.com,localhost
+export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
@@ -70,10 +73,10 @@ rm -rf %{buildroot}
 
 %files dev
 %defattr(-,root,root,-)
-/usr/lib64/*.so
 /usr/lib64/libffi-3.2.1/include/ffi.h
 /usr/lib64/libffi-3.2.1/include/ffitarget.h
-/usr/lib64/pkgconfig/*.pc
+/usr/lib64/libffi.so
+/usr/lib64/pkgconfig/libffi.pc
 
 %files doc
 %defattr(-,root,root,-)
@@ -82,4 +85,5 @@ rm -rf %{buildroot}
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/*.so.*
+/usr/lib64/libffi.so.6
+/usr/lib64/libffi.so.6.0.4
