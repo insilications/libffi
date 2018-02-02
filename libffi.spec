@@ -4,7 +4,7 @@
 #
 Name     : libffi
 Version  : 3.2.1
-Release  : 24
+Release  : 25
 URL      : ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
 Source0  : ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
 Summary  : Library supporting Foreign Function Interfaces
