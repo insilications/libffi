@@ -4,7 +4,7 @@
 #
 Name     : libffi
 Version  : 3.2.1
-Release  : 28
+Release  : 29
 URL      : ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
 Source0  : ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
 Summary  : Library supporting Foreign Function Interfaces
@@ -94,7 +94,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552260828
+export SOURCE_DATE_EPOCH=1553454744
 export LDFLAGS="${LDFLAGS} -fno-lto"
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
@@ -122,7 +122,7 @@ cd ../build32;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1552260828
+export SOURCE_DATE_EPOCH=1553454744
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libffi
 cp LICENSE %{buildroot}/usr/share/package-licenses/libffi/LICENSE
