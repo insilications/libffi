@@ -4,12 +4,13 @@
 #
 Name     : libffi
 Version  : 3.2.1
-Release  : 30
+Release  : 31
 URL      : ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
 Source0  : ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
 Summary  : Library supporting Foreign Function Interfaces
 Group    : Development/Tools
 License  : MIT
+Requires: libffi-info = %{version}-%{release}
 Requires: libffi-lib = %{version}-%{release}
 Requires: libffi-license = %{version}-%{release}
 BuildRequires : autogen
@@ -49,12 +50,12 @@ Requires: libffi-dev = %{version}-%{release}
 dev32 components for the libffi package.
 
 
-%package doc
-Summary: doc components for the libffi package.
-Group: Documentation
+%package info
+Summary: info components for the libffi package.
+Group: Default
 
-%description doc
-doc components for the libffi package.
+%description info
+info components for the libffi package.
 
 
 %package lib
@@ -85,6 +86,7 @@ license components for the libffi package.
 
 %prep
 %setup -q -n libffi-3.2.1
+cd %{_builddir}/libffi-3.2.1
 pushd ..
 cp -a libffi-3.2.1 build32
 popd
@@ -94,7 +96,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568862380
+export SOURCE_DATE_EPOCH=1573773262
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-lto -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-lto -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
@@ -122,10 +124,10 @@ cd ../build32;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1568862380
+export SOURCE_DATE_EPOCH=1573773262
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libffi
-cp LICENSE %{buildroot}/usr/share/package-licenses/libffi/LICENSE
+cp %{_builddir}/libffi-3.2.1/LICENSE %{buildroot}/usr/share/package-licenses/libffi/0155a7d592674828653b18e044fe6ea2685fac13
 pushd ../build32/
 %make_install32
 if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
@@ -159,9 +161,9 @@ popd
 /usr/lib32/pkgconfig/32libffi.pc
 /usr/lib32/pkgconfig/libffi.pc
 
-%files doc
+%files info
 %defattr(0644,root,root,0755)
-%doc /usr/share/info/*
+/usr/share/info/libffi.info
 
 %files lib
 %defattr(-,root,root,-)
@@ -175,4 +177,4 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/libffi/LICENSE
+/usr/share/package-licenses/libffi/0155a7d592674828653b18e044fe6ea2685fac13
