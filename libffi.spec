@@ -4,9 +4,9 @@
 #
 Name     : libffi
 Version  : 3.2.1
-Release  : 31
-URL      : ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
-Source0  : ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
+Release  : 32
+URL      : https://github.com/libffi/libffi/archive/v3.2.1/libffi-3.2.1.tar.gz
+Source0  : https://github.com/libffi/libffi/archive/v3.2.1/libffi-3.2.1.tar.gz
 Summary  : Library supporting Foreign Function Interfaces
 Group    : Development/Tools
 License  : MIT
@@ -96,7 +96,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573773262
+export SOURCE_DATE_EPOCH=1574242173
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-lto -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-lto -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
@@ -124,7 +124,7 @@ cd ../build32;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1573773262
+export SOURCE_DATE_EPOCH=1574242173
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libffi
 cp %{_builddir}/libffi-3.2.1/LICENSE %{buildroot}/usr/share/package-licenses/libffi/0155a7d592674828653b18e044fe6ea2685fac13
