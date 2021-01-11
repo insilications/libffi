@@ -1,7 +1,6 @@
-CFLAGS="-O2 -ffat-lto-objects -fuse-linker-plugin -pipe -fPIC -m32 -mstackrealign -march=native -mtune=native"
-export CFLAGS
-export CXXFLAGS="-O2 -ffat-lto-objects -fuse-linker-plugin -fvisibility-inlines-hidden -pipe -fPIC -m32 -mstackrealign -march=native -mtune=native"
-export LDFLAGS="-O2 -ffat-lto-objects -fuse-linker-plugin -pipe -fPIC -m32 -mstackrealign -march=native -mtune=native"
+export CFLAGS="-O3 -ffat-lto-objects -fuse-linker-plugin -pipe -fPIC -m32 -mstackrealign -march=native -mtune=native -fexceptions -fomit-frame-pointer -fstrict-aliasing -ffast-math"
+export CXXFLAGS="-O3 -ffat-lto-objects -fuse-linker-plugin -fvisibility-inlines-hidden -pipe -fPIC -m32 -mstackrealign -march=native -mtune=native -fexceptions -fomit-frame-pointer -fstrict-aliasing -ffast-math"
+export LDFLAGS="-O3 -ffat-lto-objects -fuse-linker-plugin -pipe -fPIC -m32 -mstackrealign -march=native -mtune=native -fexceptions -fomit-frame-pointer -fstrict-aliasing -ffast-math"
 #
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

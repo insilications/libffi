@@ -1,8 +1,6 @@
 Configure miss: g++ option to enable C++11 features
-Configure miss: sys/memfd.h
-Configure miss: whether compiler supports pointer authentication
 Configure miss: _ prefix in compiled symbols
 Configure miss: g++ option to enable C++11 features
-Configure miss: sys/memfd.h
-Configure miss: whether compiler supports pointer authentication
+Configure miss: _ prefix in compiled symbols
+Configure miss: g++ option to enable C++11 features
 Configure miss: _ prefix in compiled symbols
